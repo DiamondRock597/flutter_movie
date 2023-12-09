@@ -82,9 +82,9 @@ class Form extends StatefulWidget {
 }
 
 class _FormState extends State<Form> {
-  final _usernameTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
-  String? error = null;
+  final _usernameTextController = TextEditingController(text: 'admin');
+  final _passwordTextController = TextEditingController(text: 'admin');
+  String? error;
 
   void _login() {
     final username = _usernameTextController.text;
@@ -95,6 +95,7 @@ class _FormState extends State<Form> {
       setState(() {
         error = null;
       });
+      Navigator.of(context).pushReplacementNamed('/main_screen');
     } else {
       setState(() {
         error = 'Error message';
